@@ -1,11 +1,11 @@
-## #Simple GraphQL API with Node.js & Express
+# Simple GraphQL API with Node.js & Express
 
-#####Practice implementing a GraphQL API
+##### Practice implementing a GraphQL API
 
 - Random user data is stored in a JSON file created by https://mockaroo.com/
 - No actual SQL/NoSQL database is set up
 
-##Installation
+## Installation
 
 - Clone the repo
 - CD into the directory and run:
