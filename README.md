@@ -1,6 +1,8 @@
-# Simple GraphQL API with React, Node.js & Express
+# Simple CRUD GraphQL API with React, Node.js & Express
 
-##### Practice implementing a GraphQL API
+##### Practice implementing a CRUD GraphQL API
+
+<img src="https://github.com/bleunggithub/simple-graphql-api/blob/main/screenshot.png?raw=true" />
 
 - Random user data is stored in a JSON file created by https://mockaroo.com/
 - No actual SQL/NoSQL database is set up (data will not persist)
@@ -78,6 +80,8 @@ mutation{
 }
 ```
 
+---
+
 ### Client (React)
 
 - UI created with Create-React-App & Material UI
@@ -87,4 +91,4 @@ mutation{
 - After installation of the dependencies, run `yarn start`.
 - Open your browser and go to `http://localhost:3000` (if not already opened)
 
----
+
