@@ -21,7 +21,7 @@ function App() {
     <>
       <AddUser refetch={refetch}/>
       <UpdateUser refetch={refetch}/>
-      <DisplayUsers users={users} refetch={refetch} />
+      <DisplayUsers data={users} refetch={refetch} />
     </>
   );
 }

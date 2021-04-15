@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 
 import { useMutation } from '@apollo/client'
 import { DELETE_USER_BY_ID } from '../GraphQL/Mutation'
@@ -16,11 +16,12 @@ import Button from '@material-ui/core/Button';
 
 
 
-export default function DisplayUsers({users, refetch}) {
+export default function DisplayUsers({data, refetch}) {
 
     const classes = useStyles();
 
-    const [deleteUserById, {error}] = useMutation(DELETE_USER_BY_ID)
+    const [deleteUserById, { error }] = useMutation(DELETE_USER_BY_ID)
+    const [users, setUsers] = useState(data)
 
     const deleteUser = (e) => {
         const id = parseInt(e.currentTarget.value)
@@ -36,6 +37,10 @@ export default function DisplayUsers({users, refetch}) {
         refetch()
     }
     
+    useEffect(() => {
+        setUsers(data)
+    }, [data])
+
     return (
         <div className={classes.container}>
             <h1>All Users</h1>
