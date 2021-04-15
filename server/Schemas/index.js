@@ -50,6 +50,7 @@ const Mutation = new GraphQLObjectType({
                 id: { type: GraphQLInt}
             },
             resolve(parent, args) {
+                //if the data is in a database, write SQL/NoSQL query here
                 for (let i = 0; i < userData.length; i++){
                     if (userData[i].id === args.id) {
                         userData.splice(i, 1)
@@ -58,6 +59,28 @@ const Mutation = new GraphQLObjectType({
                 return args
             }
         },
+        updateUserById: {
+            type: UserType,
+            args: {
+                id: {type: GraphQLInt},
+                first_name: {type: GraphQLString},
+                last_name: {type: GraphQLString},
+                email: {type: GraphQLString},
+                password: {type: GraphQLString},
+            },
+            resolve(parent, args) {
+                //if the data is in a database, write SQL/NoSQL query here
+                for (let i = 0; i < userData.length; i++){
+                    if (userData[i].id === args.id) {
+                        userData[i].first_name = args.first_name
+                        userData[i].last_name = args.last_name
+                        userData[i].email = args.email
+                        userData[i].password = args.password
+                    }
+                }
+                return args
+            }
+        }
     }
 })
 

@@ -1,15 +1,27 @@
+import React, {useEffect, useState} from 'react'
 import './App.css';
 
-import GetUsers from './Component/GetUsers';
+import DisplayUsers from './Component/DisplayUsers';
 import AddUser from './Component/AddUser';
+import UpdateUser from './Component/UpdateUser';
 
-
+import { useQuery } from '@apollo/client'
+import { GET_USERS } from './GraphQL/Queries'
 
 function App() {
+
+  const { data, refetch} = useQuery(GET_USERS) //error, loading
+  const [users, setUsers] = useState([])
+
+  useEffect(() => {
+    if(data) setUsers(data.getAllUsers)
+  }, [data])
+
   return (
     <>
-      <AddUser />
-      <GetUsers />
+      <AddUser refetch={refetch}/>
+      <UpdateUser refetch={refetch}/>
+      <DisplayUsers users={users} refetch={refetch} />
     </>
   );
 }

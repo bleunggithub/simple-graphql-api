@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
 import { useMutation } from '@apollo/client'
-import { CREATE_USER } from '../GraphQL/Mutation'
+import { UPDATE_USER_BY_ID } from '../GraphQL/Mutation'
 
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 
 
-export default function AddUser({refetch}) {
+export default function UpdateUser({refetch}) {
     const classes = useStyles();
 
     const [input, setInput] = useState({
+        id: "",
         first_name: "",
         last_name: "",
         email: "",
@@ -24,15 +25,18 @@ export default function AddUser({refetch}) {
         })
     }
 
-    const [createUser, {error} ] = useMutation(CREATE_USER)
+    const [updateUserById, {error} ] = useMutation(UPDATE_USER_BY_ID)
 
-    const addUser = (e) => {
+    const updateUser = (e) => {
         e.preventDefault();
 
-        const {first_name, last_name, email, password} = input
+        const { first_name, last_name, email, password } = input
+        
+        const id = parseInt(input.id)
 
-        createUser({
+        updateUserById({
             variables: {
+                id,
                 first_name,
                 last_name,
                 email,
@@ -43,6 +47,7 @@ export default function AddUser({refetch}) {
         if (error) console.log(error)
 
         setInput({
+            id: "",
             first_name: "",
             last_name: "",
             email: "",
@@ -54,16 +59,17 @@ export default function AddUser({refetch}) {
 
     return (
         <div className={classes.container}>
-            <h1>Add new user</h1>
+            <h1>Update user</h1>
         <form>
             <div className={classes.inputContainer}>
+                <TextField required label="ID" name="id" value={input.id} onChange={handleInputChange} type="text" className={classes.input} />
                 <TextField required label="First Name" name="first_name" value={input.first_name} onChange={handleInputChange} type="text" className={classes.input} />
                 <TextField required label="Last Name" name="last_name" value={input.last_name} onChange={handleInputChange} type="text" className={classes.input} />
                 <TextField required label="Email" name="email" value={input.email} onChange={handleInputChange} type="email" className={classes.input} />
                 <TextField required label="Password" name="password" value={input.password} onChange={handleInputChange} type="password" className={classes.input} />
             </div>
             <div className={classes.inputContainer}>
-                <Button variant="outlined" onClick={addUser}>Add A New User</Button>    
+                <Button variant="outlined" onClick={updateUser}>Update User Details</Button>    
             </div>
         </form>
         </div>
