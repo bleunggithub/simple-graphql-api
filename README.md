@@ -1,7 +1,11 @@
 # Simple CRUD GraphQL API with React, Node.js & Express
+<<<<<<< HEAD
 
 ### <a href="https://guarded-oasis-33299.herokuapp.com/"> Deployed on Heroku</a>
 
+=======
+### <a href="https://guarded-oasis-33299.herokuapp.com/"> Deployed on Heroku</a>
+>>>>>>> c245de726cf396d785d9b64f2e0ee57eb046a14f
 ##### Practice implementing a CRUD GraphQL API
 
 <img src="https://github.com/bleunggithub/simple-graphql-api/blob/main/screenshot.png?raw=true" />
