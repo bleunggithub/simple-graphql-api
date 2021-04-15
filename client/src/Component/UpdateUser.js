@@ -80,7 +80,7 @@ export default function UpdateUser({refetch}) {
 
 const useStyles = makeStyles({
     container: {
-        margin:'5% 5% 0 5%'
+        margin:'0% 5%'
     },
     inputContainer: {
         display: 'flex',
