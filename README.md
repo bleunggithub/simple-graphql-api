@@ -1,5 +1,7 @@
 # Simple CRUD GraphQL API with React, Node.js & Express
 
+### <a href="https://guarded-oasis-33299.herokuapp.com/"> Deployed on Heroku</a>
+
 ##### Practice implementing a CRUD GraphQL API
 
 <img src="https://github.com/bleunggithub/simple-graphql-api/blob/main/screenshot.png?raw=true" />
@@ -90,5 +92,3 @@ mutation{
 
 - After installation of the dependencies, run `yarn start`.
 - Open your browser and go to `http://localhost:3000` (if not already opened)
-
-
